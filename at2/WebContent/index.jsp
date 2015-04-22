@@ -13,8 +13,9 @@
     <s:textfield name="currentUser.name" label="Username"/>
     <s:password name="currentUser.password" label="Password"/>
     <s:submit value="Login" align="center"></s:submit>
-   </s:form>
-
+    
+      </s:form>
+  <a href="<s:url value= Forgotpwd.jsp/>" target="_blank">Forgot Password</a>
 </body>
 </html>
  

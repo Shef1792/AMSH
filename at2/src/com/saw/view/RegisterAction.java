@@ -1,5 +1,7 @@
 package com.saw.view;
 
+import com.saw.controller.RegisterDao;
+
 public class RegisterAction {
 	private String name;
 	private String password;
@@ -7,10 +9,7 @@ public class RegisterAction {
 	private String phone;
 	private String role;
 	
-	public String execute(){
-		String successInd = "success";
-		return successInd;
-	}
+	
 	/**
 	 * @return the name
 	 */
@@ -72,5 +71,11 @@ public class RegisterAction {
 		this.role = role;
 	}
 	
-
+	public String execute(){  
+	    int i=RegisterDao.save(this);  
+	    if(i>0){  
+	    return "success";  
+	    }  
+	    return "error";  
+	}  
 }
