@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+<hibernate-mapping >
+	<class name="com.saw.model.student" table="student_table" >
+	     <id name="sId" column ="SID" />
+	     <property name="subject" column="Subject" />
+	     <property name="clas" column="Class" />
+	     <property name="assignmentId" column="Assignment_ID" />
+	     <property name="attachment" column="Attachment" />
+	</class>
+</hibernate-mapping>
