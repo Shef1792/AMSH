@@ -38,4 +38,23 @@ public class UserManagement extends AtUtils{
 		}
 		
 	}
+	
+	public int registerUser(useraccess currentUser){
+		Session session = AtUtils.getSessionFactory().openSession();
+		Transaction tx = null;
+		try {
+			tx = session.beginTransaction();
+			session.save(currentUser);
+			tx.commit();
+			return 1;
+		} catch (Exception e){
+			if(tx != null){
+				tx.rollback();
+			}
+			e.printStackTrace();
+			return 0;
+		} finally {
+			session.close();
+		}		
+	}
 }

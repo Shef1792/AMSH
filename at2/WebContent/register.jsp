@@ -9,19 +9,16 @@
 </head>
 <body>
 
- <s:form action="register">  
- <s:textfield name="userid" label="User_ID"></s:textfield>  
-<s:textfield name="name" label="UserName"></s:textfield>  
-<s:password name="password" label="Password"></s:password>  
-<s:textfield name="email" label="Email"></s:textfield>  
-<s:textfield name="phone" label="phone"></s:textfield>  
-
-<s:radio label="Role" list="{'Student','Teacher'}" name="Role"></s:radio>  
-
-  
-  
-<s:submit value="register"></s:submit>  
-  
-</s:form>  
+	<s:form action="register">  
+		<s:radio label="Role" list="#{'2':'Student','1':'Teacher'}" name="currentUser.Role" value="1" ></s:radio>
+		<s:textfield name="currentUser.id" label="User_ID"></s:textfield>  
+		<s:textfield name="currentUser.name" label="UserName"></s:textfield>  
+		<s:password name="currentUser.password" label="Password"></s:password>  
+		<s:textfield name="currentUser.emailId" label="Email"></s:textfield>  
+		<s:textfield name="currentUser.phoneNumber" label="phone"></s:textfield>  
+		
+		 <s:submit value="Register" align="center"></s:submit>  
+	  
+	</s:form>  
 </body>
 </html>

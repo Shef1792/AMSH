@@ -1,81 +1,40 @@
 package com.saw.view;
 
-import com.saw.controller.RegisterDao;
+import com.saw.controller.UserManagement;
+import com.saw.model.useraccess;
 
 public class RegisterAction {
-	private String name;
-	private String password;
-	private String email;
-	private String phone;
-	private String role;
+	private static final long serialVersionUID = 1L;
+	private useraccess currentUser ;
+	private UserManagement userManagement;
 	
-	
-	/**
-	 * @return the name
-	 */
-	public String getName() {
-		return name;
-	}
-	/**
-	 * @param name the name to set
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
-	/**
-	 * @return the password
-	 */
-	public String getPassword() {
-		return password;
-	}
-	/**
-	 * @param password the password to set
-	 */
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	/**
-	 * @return the email
-	 */
-	public String getEmail() {
-		return email;
-	}
-	/**
-	 * @param email the email to set
-	 */
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	/**
-	 * @return the phone
-	 */
-	public String getPhone() {
-		return phone;
-	}
-	/**
-	 * @param phone the phone to set
-	 */
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-	/**
-	 * @return the role
-	 */
-	public String getRole() {
-		return role;
-	}
-	/**
-	 * @param role the role to set
-	 */
-	public void setRole(String role) {
-		this.role = role;
+	public RegisterAction(){
+		userManagement= new UserManagement();
 	}
 	
 	public String execute(){  
-	    int i=RegisterDao.save(this);  
-	    if(i>0){  
-	    return "success";  
-	    }  
+	    int i=userManagement.registerUser(getCurrentUser()); 
+	    
+	    if (i > 0) {  
+	    	return "success";  
+	    }
+	    
 	    return "error";  
+	}
+
+	public useraccess getCurrentUser() {
+		return currentUser;
+	}
+
+	public void setCurrentUser(useraccess currentUser) {
+		this.currentUser = currentUser;
+	}
+
+	public UserManagement getUserManagement() {
+		return userManagement;
+	}
+
+	public void setUserManagement(UserManagement userManagement) {
+		this.userManagement = userManagement;
 	}  
 }
