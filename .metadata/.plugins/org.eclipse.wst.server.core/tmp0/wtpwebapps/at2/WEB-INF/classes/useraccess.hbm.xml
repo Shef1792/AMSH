@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+<hibernate-mapping >
+	<class name="com.saw.model.useraccess" table="useraccesstable" >
+	     <id name="id" column ="ID" />
+	     <property name="name" column="Name" />
+	     <property name="password" column="Password" />
+	     <property name="emailId" column="EmailId" />
+	     <property name="phoneNumber" column="PhoneNumber" />
+	     <property name="role" column="Role" />
+	</class>
+</hibernate-mapping>

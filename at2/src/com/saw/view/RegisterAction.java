@@ -4,7 +4,7 @@ import com.saw.controller.UserManagement;
 import com.saw.model.useraccess;
 
 public class RegisterAction {
-	private static final long serialVersionUID = 1L;
+	
 	private useraccess currentUser ;
 	private UserManagement userManagement;
 	
