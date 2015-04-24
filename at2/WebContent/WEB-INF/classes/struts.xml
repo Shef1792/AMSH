@@ -7,14 +7,22 @@
 <package name="default" extends="struts-default">
      
       <action name="login" class="com.saw.view.LoginAction" method="execute">
-            <result name="successST">/HomeST.jsp</result>
-            <result name="successTS">/HomeTS.jsp</result>
+            <result name="successST">student.html</result>
+            <result name="successTS">teacher.html</result>
             <result name="success">/register.jsp</result>
       </action>
       <action name="register" class="com.saw.view.RegisterAction" method="execute">
-      	<result name="success">welcome.jsp</result>
+      	<result name="successST">student.html</result>
+      	<result name="successTS">teacher.html</result>
       	<result name="error">errorRegister.jsp</result>
       </action>
-      <action name="emailer" class="com.saw.view.Emailer" method="execute"></action>
+      <action name="emailer" class="com.saw.view.Emailer" method="execute">
+      </action>
+      <action name="uploadDoc" class="com.saw.view.FileUploadAction" method="uploadDoc">
+      		<interceptor-ref name="fileUpload">
+      				<param name="maximumSize">9999999999</param>
+      		</interceptor-ref>
+      		<result name="success">studentReview.jsp</result>
+      </action>
 </package>
 </struts>

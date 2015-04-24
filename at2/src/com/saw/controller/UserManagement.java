@@ -11,7 +11,6 @@ import com.saw.util.AtUtils;
 
 public class UserManagement extends AtUtils{
 
-	@SuppressWarnings("unused")
 	public useraccess login(String username, String password){
 		Session session = AtUtils.getSessionFactory().openSession();
 		Transaction tx = null;
