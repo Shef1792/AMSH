@@ -2,31 +2,29 @@ package com.saw.view;
 
 import java.io.File;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.apache.commons.io.FileUtils;
-import org.apache.struts2.interceptor.ServletRequestAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.saw.util.StorageUtil;
 
-public class FileUploadAction extends ActionSupport implements ServletRequestAware {
+public class FileUploadAction extends ActionSupport {
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private File doc;  
-	private String docFileName;  
+	private File   upload;
+    private String uploadFileName;
+    private String uploadContentType;  
 	private StorageUtil storageUtil;
 	
 	public String uploadDoc() {  
 	    try {  
 	    String filePath = "D:/tempupload/docs";  
-	    System.out.println("Image Location:" + filePath);//see the server console for actual location  
-	    File fileToCreate = new File(filePath, this.docFileName);  
-	    FileUtils.copyFile(this.doc, fileToCreate);//copying image in the new file  
-	    storageUtil = StorageUtil.getInstance();
+	    System.out.println("Doc Location:" + filePath);//see the server console for actual location  
+	    File fileToCreate = new File(filePath, this.uploadFileName);  
+	    FileUtils.copyFile(this.upload, fileToCreate);//copying image in the new file  
+	    storageUtil = new StorageUtil();
 	    storageUtil.upload(fileToCreate, "docs/");
 	    return "SUCCESS";  
 	    }catch(Exception e){
@@ -36,33 +34,42 @@ public class FileUploadAction extends ActionSupport implements ServletRequestAwa
 	
 	public String uploadVideo() {
 		 try {  
-			    String filePath = "D:/tempupload/vids";  
-			    System.out.println("Image Location:" + filePath);//see the server console for actual location  
-			    File fileToCreate = new File(filePath, this.docFileName);  
-			    FileUtils.copyFile(this.doc, fileToCreate);//copying image in the new file  
+			    String filePath = "D:/tempupload/videos";  
+			    System.out.println("Video Location:" + filePath);//see the server console for actual location  
+			    File fileToCreate = new File(filePath, this.uploadFileName);  
+			    FileUtils.copyFile(this.upload, fileToCreate);//copying image in the new file  
 			    storageUtil = StorageUtil.getInstance();
-			    storageUtil.upload(fileToCreate, "vids/");
+			    storageUtil.upload(fileToCreate, "videos/");
 			    return "SUCCESS";  
 			    }catch(Exception e){
 			    	return null;
 			    }  
 	}
-	public File getUserImage() {  
-	    return doc;  
-	}  
-	public void setUserImage(File userImage) {  
-	    this.doc = userImage;  
-	}  
-	public String getUserImageFileName() {  
-	    return docFileName;  
-	}  
-	public void setUserImageFileName(String userImageFileName) {  
-	    this.docFileName = userImageFileName;  
+
+	public File getUpload() {
+		return upload;
 	}
 
-	@Override
-	public void setServletRequest(HttpServletRequest arg0) {
-		// TODO Auto-generated method stub
-		
-	}  
+	public void setUpload(File upload) {
+		this.upload = upload;
+	}
+
+	public String getUploadFileName() {
+		return uploadFileName;
+	}
+
+	public void setUploadFileName(String uploadFileName) {
+		this.uploadFileName = uploadFileName;
+	}
+
+	public String getUploadContentType() {
+		return uploadContentType;
+	}
+
+	public void setUploadContentType(String uploadContentType) {
+		this.uploadContentType = uploadContentType;
+	}
+
+
+
 }  

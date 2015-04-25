@@ -13,10 +13,10 @@ public class StorageUtil {
     private AmazonS3 s3;
     private String bucketName;
     private static volatile StorageUtil  storageUtil = new  StorageUtil();
-    private   StorageUtil(){
+    public StorageUtil(){
         try{
             Properties properties = new Properties();
-            properties.load(new FileInputStream("D:/workspaces/at2/WebContent/WEB-INF/AwsCredentials.properties"));
+            properties.load(new FileInputStream("D:/testwrk/at2/WebContent/WEB-INF/AwsCredentials.properties"));
             this.credentials = new   BasicAWSCredentials(properties.getProperty("accessKey"),
                                                          properties.getProperty("secretKey"));
             this.bucketName = "educarebhd";
@@ -33,6 +33,9 @@ public class StorageUtil {
     }
  
     public static StorageUtil getInstance(){
+    	if(storageUtil == null){
+    		storageUtil = new StorageUtil();
+    	}
         return storageUtil;
     }
  

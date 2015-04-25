@@ -13,7 +13,7 @@
       </action>
       
       <action name="uploadDoc" class="com.saw.view.FileUploadAction" method="uploadDoc">
-      		<interceptor-ref name="fileUpload">
+      		<interceptor-ref name="defaultStack">
       				<param name="maximumSize">9999999999</param>
       		</interceptor-ref>
       		<result name="success">studentReview.jsp</result>
