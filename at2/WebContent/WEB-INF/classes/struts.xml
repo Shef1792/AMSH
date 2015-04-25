@@ -6,18 +6,23 @@
 <constant name="struts.devMode" value="true" />
 <package name="default" extends="struts-default">
      
-      <action name="login" class="com.saw.view.AuthenticationAction" method="login">
-            <result name="success">/WEB-INF/jsp/Welcome.jsp</result>
-            <result name="input">login.jsp</action>
+      <action name="login" class="com.saw.view.LoginAction" method="execute">
+            <result name="successST">student.html</result>
+            <result name="successTS">teacher.html</result>
+            <result name="success">student.html</result>
+      </action>
+      
       <action name="uploadDoc" class="com.saw.view.FileUploadAction" method="uploadDoc">
       		<interceptor-ref name="fileUpload">
       				<param name="maximumSize">9999999999</param>
       		</interceptor-ref>
       		<result name="success">studentReview.jsp</result>
       </action>
-      <action name="logout" class="com.saw.view.AuthenticationAction"
-      	method="logout">
-      	<result name="success">Login.jsp</action>
+      
+      <action name="logout" class="com.saw.view.LoginAction" method="logout">
+      	<result name="success">index.jsp</result>
+      </action>
+      
       <action name="emailer" class="com.saw.view.Emailer" method="execute">
       	<result>success.jsp</result></action>
 </package>
