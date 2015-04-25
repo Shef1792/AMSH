@@ -11,7 +11,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head>
-        <title>Educate</title>
+        <title>Educare</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css">
