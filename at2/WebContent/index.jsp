@@ -224,9 +224,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <div class="signUp-wrapper">
                             <h2 class="signUp">Registration </h2>
                             <div class="student-registration">
-                            <s:form action="register" >  
+                            <s:form action="register" method="post">  
 								<s:radio label="Role" list="#{'2':'Student','1':'Teacher'}" name="currentUser.Role" value="1" ></s:radio>
-								<s:textfield name="currentUser.id" label="User_ID" cssClass="inpName1"></s:textfield>  
 								<s:textfield name="currentUser.name" label="UserName" cssClass="inpName1"></s:textfield>  
 								<s:password name="currentUser.password" label="Password" cssClass="inpName1"></s:password>  
 								<s:textfield name="currentUser.emailId" label="Email" cssClass="inpName1"></s:textfield>  

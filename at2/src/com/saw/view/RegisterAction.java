@@ -13,13 +13,9 @@ public class RegisterAction {
 	}
 	
 	public String execute(){  
-	    int i=userManagement.registerUser(getCurrentUser()); 
+	    String response=userManagement.registerUser(getCurrentUser()); 
 	    
-	    if (i > 0) {  
-	    	return "success";  
-	    }
-	    
-	    return "error";  
+	    return response;  
 	}
 
 	public useraccess getCurrentUser() {

@@ -1,10 +1,13 @@
 package com.saw.view;
 
 import java.io.File;
+import java.util.Map;
 
 import org.apache.commons.io.FileUtils;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import com.saw.model.useraccess;
 import com.saw.util.StorageUtil;
 
 public class FileUploadAction extends ActionSupport {
@@ -17,15 +20,20 @@ public class FileUploadAction extends ActionSupport {
     private String uploadFileName;
     private String uploadContentType;  
 	private StorageUtil storageUtil;
+	private Map<String, Object> session;
 	
 	public String uploadDoc() {  
 	    try {  
+	    session = ActionContext.getContext().getSession();
+	    String pathPrefix = ((useraccess)session.get("user")).getId();
 	    String filePath = "D:/tempupload/docs";  
 	    System.out.println("Doc Location:" + filePath);//see the server console for actual location  
 	    File fileToCreate = new File(filePath, this.uploadFileName);  
 	    FileUtils.copyFile(this.upload, fileToCreate);//copying image in the new file  
 	    storageUtil = new StorageUtil();
-	    storageUtil.upload(fileToCreate, "docs/");
+	    storageUtil.upload(fileToCreate, pathPrefix); 
+	    String attchmntPath = pathPrefix+this.uploadFileName;
+	    storageUtil.storeAssignment(attchmntPath);
 	    return "SUCCESS";  
 	    }catch(Exception e){
 	    	return null;
@@ -68,6 +76,20 @@ public class FileUploadAction extends ActionSupport {
 
 	public void setUploadContentType(String uploadContentType) {
 		this.uploadContentType = uploadContentType;
+	}
+
+	/**
+	 * @return the session
+	 */
+	public Map<String, Object> getSession() {
+		return session;
+	}
+
+	/**
+	 * @param session the session to set
+	 */
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
 	}
 
 

@@ -2,12 +2,8 @@ package com.saw.view;
 
 import java.util.Map;
 
-import javax.servlet.http.HttpSession;
-
-import org.apache.struts2.dispatcher.SessionMap;
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.amazonaws.Request;
 import com.opensymphony.xwork2.ActionSupport;
 import com.saw.controller.UserManagement;
 import com.saw.model.useraccess;
@@ -20,7 +16,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	private static final long serialVersionUID = 1L;
 	private useraccess currentUser ;
 	private UserManagement userManagement;
-	private SessionMap<String,Object> sessionMap;
+	private Map<String,Object> session;
 	
 	
 	public LoginAction(){
@@ -37,8 +33,8 @@ public class LoginAction extends ActionSupport implements SessionAware{
 			}else if (currentUser.getRole() == AtUtils.ROLE_STUDENT){
 				success = "successST";
 			}
-			sessionMap.put("usrRole", currentUser.getRole());
-			sessionMap.put("user", currentUser);
+			session.put("usrRole", currentUser.getRole());
+			session.put("user", currentUser);
 		}
 		
 		
@@ -46,8 +42,8 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	}
 	
 	public String logout(){  
-	    if(sessionMap!=null){  
-	        sessionMap.invalidate();  
+	    if(session!=null){  
+	        session.clear();  
 	    }  
 	    return "success";  
 	}  
@@ -78,11 +74,11 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	}
 	@Override
 	public void setSession(Map<String, Object> sessionMap) {
-		this.sessionMap = (SessionMap<String, Object>) sessionMap;
+		this.session = sessionMap;
 		
 	}
-	public SessionMap<String,Object> getSessionMap() {
-		return sessionMap;
+	public Map<String,Object> getSession() {
+		return session;
 	}
 
 }

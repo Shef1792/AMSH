@@ -1,22 +1,39 @@
 package com.saw.util;
 
-import java.io.*;
-import java.util.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
 
-import com.amazonaws.auth.*;
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3Client;
-import com.amazonaws.services.s3.model.*;
+import com.amazonaws.services.s3.model.Bucket;
+import com.amazonaws.services.s3.model.GetObjectRequest;
+import com.amazonaws.services.s3.model.ListObjectsRequest;
+import com.amazonaws.services.s3.model.ObjectListing;
+import com.amazonaws.services.s3.model.S3Object;
+import com.amazonaws.services.s3.model.S3ObjectSummary;
+import com.opensymphony.xwork2.ActionContext;
+import com.saw.controller.AssignmentManagement;
+import com.saw.model.assignment;
+import com.saw.model.useraccess;
 
-public class StorageUtil {
+public class StorageUtil implements SessionAware {
 	private BasicAWSCredentials credentials;
     private AmazonS3 s3;
     private String bucketName;
+    private Map<String, Object> session;
     private static volatile StorageUtil  storageUtil = new  StorageUtil();
+    private assignment currentAssignment = new assignment();
+    private AssignmentManagement asgnMgmt = new AssignmentManagement();
     public StorageUtil(){
         try{
             Properties properties = new Properties();
-            properties.load(new FileInputStream("D:/testwrk/at2/WebContent/WEB-INF/AwsCredentials.properties"));
+            properties.load(new FileInputStream("D:/workspaces/at2/WebContent/WEB-INF/AwsCredentials.properties"));
             this.credentials = new   BasicAWSCredentials(properties.getProperty("accessKey"),
                                                          properties.getProperty("secretKey"));
             this.bucketName = "educarebhd";
@@ -25,7 +42,7 @@ public class StorageUtil {
             /*
                You can use this in your web app where    AwsCredentials.properties is stored in web-inf/classes
              */
-            AmazonS3 s3 = new AmazonS3Client(new ClasspathPropertiesFileCredentialsProvider());
+           // AmazonS3 s3 = new AmazonS3Client(new ClasspathPropertiesFileCredentialsProvider());
  
         }catch(Exception e){
             System.out.println("exception while creating awss3client : " + e);
@@ -80,14 +97,28 @@ public class StorageUtil {
         System.out.println("Content-Type: "  + object.getObjectMetadata().getContentType());
  
     }
- 
-    public static void main(String args[]){
-        File file = new File("D:/pics/cam/IMG_1201.jpg");
-        StorageUtil aWSStorageUtil = StorageUtil.getInstance();
-        //aWSStorageUtil.upload(file);
-        aWSStorageUtil.getObjectList();
- 
+    
+    public void storeAssignment(String attachment){ //2 calls for teacher and student table both
+    	session = ActionContext.getContext().getSession();
+    	if(session !=null){
+    		currentAssignment.setsID(((useraccess)session.get("user")).getId());
+    		String aID = "AS"+asgnMgmt.getAssignmentId();
+    		currentAssignment.setaID(aID);
+    		currentAssignment.setAttachment(attachment);
+    		asgnMgmt.storeAssignment(currentAssignment);
+    	}
+    	
     }
- 
+
+	public Map<String, Object> getSession() {
+		return session;
+	}
+
+	@Override
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
+
+	
 }
 

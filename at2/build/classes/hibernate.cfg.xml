@@ -15,8 +15,8 @@
 		<property name="show_sql">true</property>
 		<property name="hbm2ddl.auto">update</property>
 		<mapping resource="useraccess.hbm.xml" />
-        <mapping resource="student.hbm.xml" />
-        <mapping resource="teacher.hbm.xml" />
+        <mapping resource="assignment.hbm.xml" />
+        <mapping resource="password.hbm.xml" />
         <mapping resource="comments.hbm.xml" />
  
 	</session-factory>

@@ -111,10 +111,14 @@ $(document).ready(function()
 </div>
 </div>
 	<s:form action="uploadDoc" method="post" enctype="multipart/form-data">
-            <input type="file" name="upload" id="uploadfile" />
-    <input type="submit" value="Upload" />
-     </s:form>
+            <input type="file" name="upload" id="uploadfile" value="Document"/>
+    		<input type="submit" value="Upload" />
+    </s:form>
 	<div class="cont_bg">
+	<s:form action="uploadVid" method="post" enctype="multipart/form-data">
+            <input type="file" name="upload" id="uploadfile" value="Video"/>
+    		<input type="submit" value="Upload" />
+    </s:form>
 <div class="wrap">
 <div class="content">
  <div class="main">

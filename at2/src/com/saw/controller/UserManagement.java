@@ -38,20 +38,41 @@ public class UserManagement extends AtUtils{
 		
 	}
 	
-	public int registerUser(useraccess currentUser){
+	public String registerUser(useraccess currentUser){
 		Session session = AtUtils.getSessionFactory().openSession();
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
+			String hql = "SELECT count(*) from useraccess UAT where UAT.role = :role";
+			Query query = session.createQuery(hql);
+			query.setParameter("role",currentUser.getRole());
+			@SuppressWarnings("rawtypes")
+			List results = query.list();
+			int counter = (int) results.get(0);
+			String uId;
+			counter++;
+			if(currentUser.getRole() == AtUtils.ROLE_TEACHER){
+				uId = "TS"+counter;
+				currentUser.setId(uId);
+			}else if (currentUser.getRole() == AtUtils.ROLE_STUDENT){
+				uId = "ST"+counter;
+				currentUser.setId(uId);
+			}
 			session.save(currentUser);
 			tx.commit();
-			return 1;
+			if(currentUser.getRole() == AtUtils.ROLE_TEACHER){
+				return "successTS";
+			}else if (currentUser.getRole() == AtUtils.ROLE_STUDENT){
+				return "successST";
+			}
+			return "error";
+			
 		} catch (Exception e){
 			if(tx != null){
 				tx.rollback();
 			}
 			e.printStackTrace();
-			return 0;
+			return "error";
 		} finally {
 			session.close();
 		}		
