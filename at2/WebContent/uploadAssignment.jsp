@@ -102,7 +102,7 @@ $(document).ready(function()
 	 	 <ul class="nav">
 	        <li class="active"><a href="index.jsp" title="Home">Home</a></li>
 	  		<li><a href="uploadAssignment.jsp">Submit Assignment</a></li>
-	  	    <li><a href="studentReview.jsp">Check Assignment Reviews</a></li>
+	  	    <li><a href="GetData.jsp">Check Assignment Reviews</a></li>
 	  		<li><a href="logout.jsp">Logout</a></li>
       </ul>
 	 </div>
@@ -111,7 +111,9 @@ $(document).ready(function()
 </div>
 </div>
 	<s:form action="uploadDoc" method="post" enctype="multipart/form-data">
-            <input type="file" name="upload" id="uploadfile" value="Document"/>
+            <s:doubleselect label="Class" name="clas" list="{'Class 1','Class 2','Class 3'}" doubleName="subject" doubleList="top == 'Class 1' ? 
+         {'History','Science','Maths','Computer'} : top == 'Class 2' ? {'History','Science','Maths'} : {'History','Science'}" />
+            <input type="file" name="upload" id="uploadfile" value="Document"/>            
     		<input type="submit" value="Upload" />
     </s:form>
 	<div class="cont_bg">

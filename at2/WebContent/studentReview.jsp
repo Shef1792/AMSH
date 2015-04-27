@@ -102,18 +102,37 @@ $(document).ready(function()
 	 	 <ul class="nav">
 	        <li class="active"><a href="index.jsp" title="Home">Home</a></li>
 	  		<li><a href="uploadAssignment.jsp">Submit Assignment</a></li>
-	  	    <li><a href="studentReview.jsp">Check Assignment Reviews</a></li>
+	  	    <li><a href="GetData.jsp">Check Assignment Reviews</a></li>
 	  		<li><a href="logout.jsp">Logout</a></li>
       </ul>
 	 </div>
 	    <div class="clear"></div>
 	</div>
 </div>
-</div>
-	<s:form action="uploadDoc" method="post" enctype="multipart/form-data">
-		<s:file name="doc" label="Document"></s:file>
-		<s:submit value="Upload Document"></s:submit>
-	</s:form><div class="cont_bg">
+</div style="align:center;">
+	<table >
+	<tbody>
+	<tr>
+	    <td width="15%">Assignment</td>
+	    <td width="15%" >Class</td>
+	    <td width="15%">Subject</td>
+	    <td width="15%">Submission Date</td>
+	    <td width="15%">Grade</td>
+	</tr>
+	
+	<s:iterator value="studentAssignmentList">
+        <tr>
+            <td width="15%"><s:property value="attachment"/></td>
+            <td width="15%"><s:property value="clas"/></td>
+            <td width="15%"><s:property value="subject"/></td>
+            <td width="15%"><s:property value="timeStamp"/></td>
+            <td width="15%"><s:property value="grade"/></td>
+        </tr>
+    </s:iterator>
+	</tbody>
+    
+</table>
+<div class="cont_bg">
 <div class="wrap">
 <div class="content">
  <div class="main">

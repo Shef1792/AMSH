@@ -7,7 +7,6 @@ import org.apache.commons.io.FileUtils;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
-import com.saw.model.useraccess;
 import com.saw.util.StorageUtil;
 
 public class FileUploadAction extends ActionSupport {
@@ -21,20 +20,20 @@ public class FileUploadAction extends ActionSupport {
     private String uploadContentType;  
 	private StorageUtil storageUtil;
 	private Map<String, Object> session;
+	private String clas,subject;
 	
 	public String uploadDoc() {  
 	    try {  
 	    session = ActionContext.getContext().getSession();
-	    String pathPrefix = ((useraccess)session.get("user")).getId();
-	    String filePath = "D:/tempupload/docs";  
+	    String pathPrefix = getClas()+"/"+getSubject()+"/";
+	    String filePath = "D:/tempupload";  
 	    System.out.println("Doc Location:" + filePath);//see the server console for actual location  
 	    File fileToCreate = new File(filePath, this.uploadFileName);  
 	    FileUtils.copyFile(this.upload, fileToCreate);//copying image in the new file  
 	    storageUtil = new StorageUtil();
 	    storageUtil.upload(fileToCreate, pathPrefix); 
-	    String attchmntPath = pathPrefix+this.uploadFileName;
-	    storageUtil.storeAssignment(attchmntPath);
-	    return "SUCCESS";  
+	    storageUtil.storeAssignment(this.uploadFileName,getClas(),getSubject());
+	    return "success";  
 	    }catch(Exception e){
 	    	return null;
 	    }  
@@ -90,6 +89,30 @@ public class FileUploadAction extends ActionSupport {
 	 */
 	public void setSession(Map<String, Object> session) {
 		this.session = session;
+	}
+	/**
+	 * @return the clas
+	 */
+	public String getClas() {
+		return clas;
+	}
+	/**
+	 * @param clas the clas to set
+	 */
+	public void setClas(String clas) {
+		this.clas = clas;
+	}
+	/**
+	 * @return the subject
+	 */
+	public String getSubject() {
+		return subject;
+	}
+	/**
+	 * @param subject the subject to set
+	 */
+	public void setSubject(String subject) {
+		this.subject = subject;
 	}
 
 

@@ -48,9 +48,9 @@ public class UserManagement extends AtUtils{
 			query.setParameter("role",currentUser.getRole());
 			@SuppressWarnings("rawtypes")
 			List results = query.list();
-			int counter = (int) results.get(0);
+			long counter = (long) results.get(0);
 			String uId;
-			counter++;
+			counter+=1;
 			if(currentUser.getRole() == AtUtils.ROLE_TEACHER){
 				uId = "TS"+counter;
 				currentUser.setId(uId);

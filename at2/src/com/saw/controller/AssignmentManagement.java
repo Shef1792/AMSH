@@ -13,15 +13,19 @@ import com.saw.util.AtUtils;
 
 public class AssignmentManagement extends AtUtils {
 	
-	public List<String> getStudentAssignment(){
+	public List<assignment> getStudentAssignment(String studentId){
 		Session session = AtUtils.getSessionFactory().openSession();
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			String hql = "select count(*) from student";
+			String hql = "from assignment as asgn where asgn.sID = :studentID";
 			Query query = session.createQuery(hql);
-			int results = query.executeUpdate();
-			return null;
+			query.setParameter("studentID",studentId);
+			List<assignment> results = query.list();
+			if (!results.isEmpty()){
+				return results;
+			}
+			else return null;
 		} catch (Exception e){
 			if(tx != null){
 				tx.rollback();
@@ -42,9 +46,9 @@ public class AssignmentManagement extends AtUtils {
 			Criteria cr = session.createCriteria(assignment.class);
 			cr.setProjection(Projections.rowCount());
 			List rowCount = cr.list();
-			int aID = (int) rowCount.get(0);
+			long aID = (long) rowCount.get(0);
 			tx.commit();
-			return aID++;
+			return (int) ++aID;
 		} catch (Exception e){
 			if(tx != null){
 				tx.rollback();

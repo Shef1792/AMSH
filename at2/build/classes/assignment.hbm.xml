@@ -4,12 +4,12 @@
  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
 <hibernate-mapping >
 	<class name="com.saw.model.assignment" table="assignment_table" >
-	     <id name="aId" column ="AID" />
+	     <id name="aID" column ="AID" />
 	     <property name="attachment" column="attachment" />
 	     <property name="grade" column="grade" />
 	     <property name="timeStamp" column="timestamp" />
-	     <property name="sId" column ="SID" />
-	     <property name="tId" column ="TID" />
+	     <property name="sID" column ="SID" />
+	     <property name="tID" column ="TID" />
 	     <property name="clas" column="class" />
 	     <property name="subject" column="subject" />
 	</class>

@@ -229,8 +229,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								<s:textfield name="currentUser.name" label="UserName" cssClass="inpName1"></s:textfield>  
 								<s:password name="currentUser.password" label="Password" cssClass="inpName1"></s:password>  
 								<s:textfield name="currentUser.emailId" label="Email" cssClass="inpName1"></s:textfield>  
-								<s:textfield name="currentUser.phoneNumber" label="phone" cssClass="inpName1"></s:textfield>  
-								
+								<s:textfield name="currentUser.phoneNumber" label="phone" cssClass="inpName1"></s:textfield>								
 								 <s:submit value="Register" align="center" cssClass="lognBtn"></s:submit>  
 							  
 							</s:form>

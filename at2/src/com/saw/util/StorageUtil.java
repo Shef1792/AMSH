@@ -2,6 +2,9 @@ package com.saw.util;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -30,6 +33,10 @@ public class StorageUtil implements SessionAware {
     private static volatile StorageUtil  storageUtil = new  StorageUtil();
     private assignment currentAssignment = new assignment();
     private AssignmentManagement asgnMgmt = new AssignmentManagement();
+    DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    Date date = new Date();
+    List<assignment> studentAssgnList;
+    
     public StorageUtil(){
         try{
             Properties properties = new Properties();
@@ -98,15 +105,32 @@ public class StorageUtil implements SessionAware {
  
     }
     
-    public void storeAssignment(String attachment){ //2 calls for teacher and student table both
+    public void storeAssignment(String attachment, String clas, String subject){ //2 calls for teacher and student table both
     	session = ActionContext.getContext().getSession();
     	if(session !=null){
     		currentAssignment.setsID(((useraccess)session.get("user")).getId());
     		String aID = "AS"+asgnMgmt.getAssignmentId();
     		currentAssignment.setaID(aID);
     		currentAssignment.setAttachment(attachment);
+    		currentAssignment.setGrade(null);
+    		currentAssignment.setClas(clas);
+    		currentAssignment.setSubject(subject);
+    		currentAssignment.setTimeStamp(dateFormat.format(date));
     		asgnMgmt.storeAssignment(currentAssignment);
     	}
+    	
+    }
+    
+    public List<assignment> retrieveStudentAssignment(){
+    	session = ActionContext.getContext().getSession();
+    	if(session != null) {
+    		String studentId = ((useraccess)session.get("user")).getId();
+    		studentAssgnList = asgnMgmt.getStudentAssignment(studentId);
+    	}
+    	if(studentAssgnList != null){
+    		return studentAssgnList;
+    	}
+    	return null;
     	
     }
 
