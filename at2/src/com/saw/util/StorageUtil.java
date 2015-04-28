@@ -133,6 +133,19 @@ public class StorageUtil implements SessionAware {
     	return null;
     	
     }
+    
+    public List<assignment> retrieveTeacherAssignment(String clas, String subject){
+
+    	if(subject.equalsIgnoreCase("ALL")){
+    		subject ="*";
+    	}
+    	studentAssgnList = asgnMgmt.getTeacherAssignment(clas,subject);
+    	if(studentAssgnList != null){
+    		return studentAssgnList;
+    	}
+    	return null;
+    	
+    }
 
 	public Map<String, Object> getSession() {
 		return session;

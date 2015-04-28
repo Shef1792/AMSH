@@ -110,17 +110,18 @@ $(document).ready(function()
 	</div>
 </div>
 </div>
-	<s:form action="uploadDoc" method="post" enctype="multipart/form-data">
+
+	<form action="uploadDoc" method="post" enctype="multipart/form-data">
             <s:doubleselect label="Class" name="clas" list="{'Class 1','Class 2','Class 3'}" doubleName="subject" doubleList="top == 'Class 1' ? 
          {'History','Science','Maths','Computer'} : top == 'Class 2' ? {'History','Science','Maths'} : {'History','Science'}" />
-            <input type="file" name="upload" id="uploadfile" value="Document"/>            
+            <input type="file" name="upload" id="uploadfile" value="Document" />            
     		<input type="submit" value="Upload" />
-    </s:form>
+    </form>
 	<div class="cont_bg">
-	<s:form action="uploadVid" method="post" enctype="multipart/form-data">
-            <input type="file" name="upload" id="uploadfile" value="Video"/>
-    		<input type="submit" value="Upload" />
-    </s:form>
+<%-- 	<s:form action="uploadVid" method="post" enctype="multipart/form-data"> --%>
+<!--             <input type="file" name="upload" id="uploadfile" value="Video"/> -->
+<!--     		<input type="submit" value="Upload" /> -->
+<%--     </s:form> --%>
 <div class="wrap">
 <div class="content">
  <div class="main">

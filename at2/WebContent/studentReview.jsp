@@ -19,6 +19,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!--slider-->
 <link href="css/flexslider.css" rel="stylesheet" type="text/css" media="all" />
 <script src="js/jquery-1.7.1.min.js" type="text/javascript"></script>
+<link href="css/responsive-tables.css" rel="stylesheet" type="text/css" media="all" />
+<script src="js/responsive-tables.js" type="text/javascript"></script>
 <script src="js/jquery.flexslider.js" type="text/javascript"></script>
  <script type="text/javascript">
     $(function(){
@@ -90,6 +92,12 @@ $(document).ready(function()
   transition-timing-function: linear;
   width: 95px;
 }
+.main {
+		float: left;
+		width: auto;
+		margin-right: 2.333%;
+		height: 80%;
+	}
 </style>
 </head>
 <body>
@@ -109,8 +117,10 @@ $(document).ready(function()
 	    <div class="clear"></div>
 	</div>
 </div>
-</div style="align:center;">
-	<table >
+<div class="slider_bg">
+<div class="wrap">
+ <section class="slider">
+  <table class="responsive">
 	<tbody>
 	<tr>
 	    <td width="15%">Assignment</td>
@@ -132,136 +142,8 @@ $(document).ready(function()
 	</tbody>
     
 </table>
-<div class="cont_bg">
-<div class="wrap">
-<div class="content">
- <div class="main">
- 	<h2>Welcome to our School </h2>
- 	<div class="text">
- 		<div class="txt_img">
- 			<a href="details.html"><img src="images/pic1.jpg"  alt="" /></a> 
- 		</div>
-		<div class="txt_para">
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-		</div>
-	</div>
-	<div class="txt_para1">
-		<p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give and expound the actual teachings the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? </p>
-	</div>
-	<div class="btn">
-		<a href="details.html">Read More <span>>></span></a>
-	</div>
-	<div class="clear"></div>
-	<div class="menu1">
-		<ul class="list">
-            <li><img src="images/icon_1.png" alt="">
-            	<p><strong>Penatibus parturnt montes</strong>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi aliquip consequat Lorem ipsum dolor sitamet conset etuer amet adipinget praesent ....</p>
-            </li>
-        </ul>
-	</div>
-		<div class="menu1">
-		<ul class="list">
-            <li><img src="images/icon_2.png" alt="">
-            	<p><strong>Penatibus parturnt montes</strong>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi aliquip consequat Lorem ipsum dolor sitamet conset etuer amet adipinget praesent ....</p>
-            </li>
-         </ul>
-	</div>
- </div>
- <div class="sidebar">
-  <div class="side_bar">
- 	<h2>Login/Register</h2>
- 	<p><span class="style2">.Student</span></p>
- 	<p align="center"><span class="style2 "></span></p>
- 	
- 	<p class="top" align="center"><span class="style2">Login<a href="" class="style2"></a></p>
-
- 	<table width="153" border="0" align="center">
-      <tr>
-        <td width="163"><form name="myForm" action="welcome.html"onsubmit="return validateForm()" method="post">
-            <span class="style2"> Name:</span>
-            <input type="text" name="fname">
-            <span class="style2">Password: </span>
-            <input type="password" name="pass">
-            <input name="submit" type="submit" value="Submit">
-        </form></td>
-      </tr>
-      <!--onSubmit="submitForm(); return false;">-->
-      <table width="69%" height="25%" align="center" >
-        <tbody>
-        
-        <tr>
-          <td align="left" class="sidebar_common"><div align="center" class="head"><strong><span class="style2">Registration Form</strong></div></td>
-        </tr>
-        <tr>
-          <td align="left"></td>
-        </tr>
-        <tr>
-        
-        <td align="center" valign="top">
-        
-        <table width="222" border="0" align="center" cellpadding="0" cellspacing="0">
-          <tbody>
-            <tr>
-              <td colspan="2"><div align="right"><span class="body_txt"><span class="mandatory"><font size="2"></font></span><font size="2"><font class="registration_txt" size="2"></font></font></span></div></td>
-            </tr>
-            <tr>
-              <td colspan="2"><img src="../ITM Group Alumni Online Portal   ITM University , Madhya Pradesh_files/trans.gif" height="10" width="1"></td>
-            </tr>
-            <tr>
-              <td width="153" height="30" align="right" class="style2"><font color="red" size="3">*</font><span class="style2"> Name :</span></td>
-              <td width="269" align="left"><input type="text" name="name" id="name">
-              </td>
-            </tr>
-            <tr>
-              <td width="153" height="30" align="right" class="style2"><font color="red" size="3">*</font><span class="style2">Password</span></td>
-              <td width="269" align="left"><input type="password" name="website name" id="websitename">
-              </td>
-            </tr>
-            <tr>
-            <tr>
-              <td width="153" height="30" align="right" class="style2"><font color="red" size="3">*</font><span class="style2"> Email Id :</span></td>
-              <td width="269" align="left"><input type="text" name="email" id="email" onBlur="showUser(this.value)">
-              </td>
-              <td><span id='txtHint'></span></td>
-            </tr>
-            <tr>
-              <td width="153" height="30" align="right" class="style2"></font><span class="style2"> Mobile :</span></td>
-              <td width="269" align="left"><input type="text" name="Mobile" id="Mobile">
-              </td>
-            </tr>
-            <tr>
-              <td width="153" height="30" align="right" class="style2"  >
-                  <input name="Submit" value="Submit" class="button" tabindex="3" type="Submit"  />
-              </div></td>
-            </tr>
-            </font>
-            
-          </td>
-          
-          </tr>
-          
-          </tbody>
-          
-        </table>
-        </td>
-        
-        </tr>
-        
-        </tbody>
-        
-      </table>
- 	   
-</table>
- 	<p class="top"><a href="">aliquip consequat.</a></p>
- 	<p class="top"><a href=""><img src="images/art-pic4.jpg" alt="">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi aliquip consequat.</a></p>
- </div>
-  <div class="side_bar1">
- 	<h2>Testimonials</h2>
- 	<p class="top">But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account</p>
- 	<p class="side_bar1_bg"></p>
-  </div>
- </div>
-  </div>
+ 		
+  </section>
  <div class="clear"></div>
  </div>
 </div>

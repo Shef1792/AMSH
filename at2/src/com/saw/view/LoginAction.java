@@ -24,7 +24,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	}
 	
 	public String execute(){
-		String success = "success";
+		String success = "input";
 		currentUser = userManagement.login(getCurrentUser().getName(), getCurrentUser().getPassword());
 		
 		if(currentUser != null){
@@ -36,7 +36,6 @@ public class LoginAction extends ActionSupport implements SessionAware{
 			session.put("usrRole", currentUser.getRole());
 			session.put("user", currentUser);
 		}
-		
 		
 		return success;
 	}
@@ -80,5 +79,5 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	public Map<String,Object> getSession() {
 		return session;
 	}
-
+	
 }

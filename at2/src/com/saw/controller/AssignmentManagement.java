@@ -38,6 +38,31 @@ public class AssignmentManagement extends AtUtils {
 		
 	}
 	
+	public List<assignment> getTeacherAssignment(String clas,String subject){
+		Session session = AtUtils.getSessionFactory().openSession();
+		Transaction tx = null;
+		try {
+			tx = session.beginTransaction();
+			String hql = "from assignment as asgn where asgn.clas = :clas and asgn.subject = :subject";
+			Query query = session.createQuery(hql);
+			query.setParameter("clas",clas);
+			query.setParameter("subject",subject);
+			List<assignment> results = query.list();
+			if (!results.isEmpty()){
+				return results;
+			}
+			else return null;
+		} catch (Exception e){
+			if(tx != null){
+				tx.rollback();
+			}
+			e.printStackTrace();
+			return null;
+		} finally {
+			session.close();
+		}
+		
+	}
 	public int getAssignmentId(){
 		Session session = AtUtils.getSessionFactory().openSession();
 		Transaction tx = null;

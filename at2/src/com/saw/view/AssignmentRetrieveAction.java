@@ -9,6 +9,7 @@ import com.saw.util.StorageUtil;
 public class AssignmentRetrieveAction extends ActionSupport {
 	private StorageUtil storageUtil = new StorageUtil();
 	List<assignment> studentAssignmentList;
+	private String clas,subject;
 	
 	public String loadStudentData(){
 		
@@ -16,6 +17,10 @@ public class AssignmentRetrieveAction extends ActionSupport {
 		return "success";
 	}
 
+	public String loadTeacherData(){
+		studentAssignmentList = storageUtil.retrieveTeacherAssignment(getClas(),getSubject());
+		return "success";
+	}
 	/**
 	 * @return the studentAssignmentList
 	 */
@@ -28,6 +33,34 @@ public class AssignmentRetrieveAction extends ActionSupport {
 	 */
 	public void setStudentAssignmentList(List<assignment> studentAssignmentList) {
 		this.studentAssignmentList = studentAssignmentList;
+	}
+
+	/**
+	 * @return the clas
+	 */
+	public String getClas() {
+		return clas;
+	}
+
+	/**
+	 * @param clas the clas to set
+	 */
+	public void setClas(String clas) {
+		this.clas = clas;
+	}
+
+	/**
+	 * @return the subject
+	 */
+	public String getSubject() {
+		return subject;
+	}
+
+	/**
+	 * @param subject the subject to set
+	 */
+	public void setSubject(String subject) {
+		this.subject = subject;
 	}
 
 }

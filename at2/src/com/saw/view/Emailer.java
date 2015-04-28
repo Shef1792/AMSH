@@ -37,8 +37,7 @@ public class Emailer extends ActionSupport {
    {
       String ret = SUCCESS;
       try
-      {  
-
+      {
          Session session = Session.getDefaultInstance(properties,  
             new javax.mail.Authenticator() {
             protected PasswordAuthentication 
@@ -72,14 +71,24 @@ public class Emailer extends ActionSupport {
    public void setTo(String to) {
       this.to = to;
    }
-   
-   public String gettokenName() {
-	      return tokenName;
-	   }
 
-	   public void settokenName(String tokenName) {
-	      this.tokenName = tokenName;
-	   }
+
+
+/**
+ * @return the tokenName
+ */
+public String getTokenName() {
+	return tokenName;
+}
+
+
+
+/**
+ * @param tokenName the tokenName to set
+ */
+public void setTokenName(String tokenName) {
+	this.tokenName = tokenName;
+}
 
   
    }

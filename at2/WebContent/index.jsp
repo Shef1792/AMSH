@@ -188,58 +188,58 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </div>
             </div>
         </div>
-        <!-- Modal HTML -->
         <div id="myModal" class="modal fade">
-            <div class="modal-dialog" >
+            <section class="modal-dialog" style="">
                 <div class="modal-content">
                     <div class="modal-header headerBG" style="border:none;">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>                    
                     </div>
-                    <div class="modal-body" style="padding-top:0px;padding-left:30px;padding-right:30px;">               	                    	
+                    <section class="modal-body" style="padding-top:0px;padding-left:30px;padding-right:30px;">               	                    	
                         <div class="login-wrapper">
-                            <p class="login">Login </p>
-                            <s:form action="login" method="post">
-	   						<s:textfield name="currentUser.name" label="Username" cssClass="inpName1"/>
-	    					<s:password name="currentUser.password" label="Password" cssClass="inpPwd1"/>
+                            <h2 class="login">Login </h2>
+                            <form action="login" method="post">
+	   						<s:textfield name="currentUser.name" placeholder="Username" cssClass="inpName1"/>
+	    					<s:password name="currentUser.password" placeholder="Password" cssClass="inpPwd1"/>
 	   						<s:submit value="Login" cssClass="lognBtn"></s:submit>
-      						</s:form>
-                            <p class="forgotBox">Forgot Password?</p>
+	   						<s:actionerror/>
+      						</form>
+                            <article class="forgotBox">
+                                <p>Forgot Password?</p>
+                            </article> 
 
                         </div>                           
 
-                    </div>
+                    </section>
 
                 </div>
-            </div>
+            </section>
         </div>
         <!-- Modal HTML -->
         <!-- Modal HTML -->
         <div id="myModal2" class="modal fade">
-            <div class="modal-dialog" style="">
+            <section class="modal-dialog" style="">
                 <div class="modal-content">
                     <div class="modal-header headerBG"  style="border:none;">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>                    
+                        <button type="button" class="close" data-dismiss="modal" area-hidden="true">&times;</button>                    
                     </div>
-                    <div class="modal-body" style="padding-top:0px;padding-left:30px;padding-right:30px;">               	                    	
+                    <section class="modal-body" style="padding-top:0px;padding-left:30px;padding-right:30px;">               	                    	
                         <div class="signUp-wrapper">
                             <h2 class="signUp">Registration </h2>
-                            <div class="student-registration">
-                            <s:form action="register" method="post">  
-								<s:radio label="Role" list="#{'2':'Student','1':'Teacher'}" name="currentUser.Role" value="1" ></s:radio>
-								<s:textfield name="currentUser.name" label="UserName" cssClass="inpName1"></s:textfield>  
-								<s:password name="currentUser.password" label="Password" cssClass="inpName1"></s:password>  
-								<s:textfield name="currentUser.emailId" label="Email" cssClass="inpName1"></s:textfield>  
-								<s:textfield name="currentUser.phoneNumber" label="phone" cssClass="inpName1"></s:textfield>								
+                            <form action="register" method="post">  
+								<s:radio placeholder="Role" list="#{'2':'Student','1':'Teacher'}" name="currentUser.Role" value="1" ></s:radio>
+								<s:textfield name="currentUser.name" placeholder="UserName" cssClass="inpName1"></s:textfield>  
+								<s:password name="currentUser.password" placeholder="Password" cssClass="inpName1"></s:password>  
+								<s:textfield name="currentUser.emailId" placeholder="Email" cssClass="inpName1"></s:textfield>  
+								<s:textfield name="currentUser.phoneNumber" placeholder="Phone Number" cssClass="inpName1"></s:textfield>								
 								 <s:submit value="Register" align="center" cssClass="lognBtn"></s:submit>  
 							  
-							</s:form>
-                            </div>
+							</form>
                         </div>                           
 
-                    </div>
+                    </section>
 
                 </div>
-            </div>
+            </section>
         </div>
         
         <!-- Modal HTML -->
