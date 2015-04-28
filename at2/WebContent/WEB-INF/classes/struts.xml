@@ -32,8 +32,12 @@
       		<result name="success">studentReview.jsp</result>
       </action>
       
-            <action name="loadSTData" class="com.saw.view.AssignmentRetrieveAction" method="loadStudentData">
+      <action name="loadSTData" class="com.saw.view.AssignmentRetrieveAction" method="loadStudentData">
       		<result name="success">studentReview.jsp</result>
+      </action>
+      
+      <action name="getStudent" class="com.saw.view.AssignmentRetrieveAction" method="loadTeacherData">
+      		<result name="success">grade.jsp</result>
       </action>
       
       <action name="logout" class="com.saw.view.LoginAction" method="logout">
