@@ -10,7 +10,7 @@
 <body>
    
    <form action="emailer" method="post">
-   <label for="Email_ID">From</label><br/>
+   <label for="Email_ID">USER EMAIL ID</label><br/>
    <input type="text" name="to"/><br/>
    <input type="submit" value="Send Email"/>
    </form>

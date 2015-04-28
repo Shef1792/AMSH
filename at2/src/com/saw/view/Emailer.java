@@ -19,6 +19,7 @@ public class Emailer extends ActionSupport {
 	 */
    private static final long serialVersionUID = 1L;
    private String to;
+   private String tokenName;
    
 
    static Properties properties = new Properties();
@@ -36,7 +37,8 @@ public class Emailer extends ActionSupport {
    {
       String ret = SUCCESS;
       try
-      {
+      {  
+
          Session session = Session.getDefaultInstance(properties,  
             new javax.mail.Authenticator() {
             protected PasswordAuthentication 
@@ -50,7 +52,7 @@ public class Emailer extends ActionSupport {
          message.setRecipients(Message.RecipientType.TO, 
             InternetAddress.parse(to));
          message.setSubject("Reset Password");
-         message.setText("");
+         message.setText("http://localhost:8080/at2/tokenName");
          Transport.send(message);
       }
       catch(Exception e)
@@ -70,6 +72,14 @@ public class Emailer extends ActionSupport {
    public void setTo(String to) {
       this.to = to;
    }
+   
+   public String gettokenName() {
+	      return tokenName;
+	   }
+
+	   public void settokenName(String tokenName) {
+	      this.tokenName = tokenName;
+	   }
 
   
    }
