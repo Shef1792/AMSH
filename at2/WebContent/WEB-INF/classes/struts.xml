@@ -45,6 +45,11 @@
       </action>
       
       <action name="emailer" class="com.saw.view.Emailer" method="execute">
-      	<result>success.jsp</result></action>
+      	<result name="success">index.jsp</result>
+      </action>
+      
+      <action name="loadEmailToken" class="com.saw.view.Emailer" method="loadEmailToken">
+      	<result name="success">Forgotpass_emailID.jsp</result>
+      </action>
 </package>
 </struts>

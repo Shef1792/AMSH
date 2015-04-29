@@ -53,7 +53,7 @@ public class Emailer extends ActionSupport {
          message.setRecipients(Message.RecipientType.TO, 
             InternetAddress.parse(to));
          message.setSubject("Reset Password");
-         message.setText("http://localhost:8080/at2/Forgotpwd.jsp?tok="+tokenName);
+         message.setText("http://localhost:8080/at2/Forgotpwd.jsp?tok="+getTokenName());
          Transport.send(message);
       }
       catch(Exception e)
@@ -64,7 +64,10 @@ public class Emailer extends ActionSupport {
       return ret;
    }
 
-  
+  public String loadEmailToken(){
+	  tokenName = TokenHelper.generateGUID();
+	  return "success";
+  }
 
    public String getTo() {
       return to;
@@ -76,15 +79,15 @@ public class Emailer extends ActionSupport {
 
 
 
-public String getTokenName() {
-	return tokenName;
-}
-
-
-
-public void setTokenName(String tokenName) {
-	tokenName = TokenHelper.generateGUID();
-}
+	public String getTokenName() {
+		return tokenName;
+	}
+	
+	
+	
+	public void setTokenName(String tokenName) {
+		this.tokenName = tokenName;
+	}
 
   
    }

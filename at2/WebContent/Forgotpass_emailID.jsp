@@ -10,7 +10,7 @@
 <body>
    
    <form action="emailer" method="post">
-   <s:token name="%{tokenName}" style="visible:none;"/>
+   <s:token name="tokenName" cssStyle="visible:none;"/>
    <label for="Email_ID">Enter your email ID:</label><br/>
    <input type="text" name="to"/><br/>
    <input type="submit" value="Send Email"/>

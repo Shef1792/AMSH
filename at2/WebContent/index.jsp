@@ -204,7 +204,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	   						<s:submit value="Login" cssClass="lognBtn"></s:submit>
       						</form>
                             <article class="forgotBox">
-                                <p>Forgot Password?</p>
+                                <p><a href="getEmail.jsp">Forgot Password?</a></p>
                             </article>
 
                         </div>                           
