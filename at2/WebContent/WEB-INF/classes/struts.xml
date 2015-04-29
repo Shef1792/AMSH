@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+   "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+<constant name="struts.devMode" value="true" />
+<package name="default" extends="struts-default">
+     
+      <action name="login" class="com.saw.view.LoginAction" method="execute">
+            <result name="successST">student.html</result>
+            <result name="successTS">teacher.html</result>
+            <result name="input">index.jsp</result>
+      </action>
+      
+      <action name="register" class="com.saw.view.RegisterAction" method="execute">
+      	<result name="successST">student.html</result>
+      	<result name="successTS">teacher.html</result>
+      	<result name="error">errorRegister.jsp</result>
+      </action>
+      
+      <action name="uploadDoc" class="com.saw.view.FileUploadAction" method="uploadDoc">
+      		<interceptor-ref name="defaultStack">
+      				<param name="maximumSize">9999999999</param>
+      		</interceptor-ref>
+      		<result name="success">GetData.jsp</result>
+      </action>
+      
+      <action name="uploadVid" class="com.saw.view.FileUploadAction" method="uploadVideo">
+      		<interceptor-ref name="defaultStack">
+      				<param name="maximumSize">9999999999</param>
+      		</interceptor-ref>
+      		<result name="success">studentReview.jsp</result>
+      </action>
+      
+      <action name="loadSTData" class="com.saw.view.AssignmentRetrieveAction" method="loadStudentData">
+      		<result name="success">studentReview.jsp</result>
+      </action>
+      
+      <action name="getStudent" class="com.saw.view.AssignmentRetrieveAction" method="loadTeacherData">
+      		<result name="success">grade.jsp</result>
+      </action>
+      
+      <action name="logout" class="com.saw.view.LoginAction" method="logout">
+      	<result name="success">index.jsp</result>
+      </action>
+      
+      <action name="emailer" class="com.saw.view.Emailer" method="execute">
+      	<result>success.jsp</result></action>
+</package>
+</struts>
