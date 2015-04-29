@@ -13,6 +13,7 @@ import javax.mail.internet.MimeMessage;
 import org.apache.struts2.util.TokenHelper;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.saw.util.StorageUtil;
 
 public class Emailer extends ActionSupport {
 
@@ -22,6 +23,7 @@ public class Emailer extends ActionSupport {
    private static final long serialVersionUID = 1L;
    private String to;
    private String tokenName;
+   private StorageUtil storageUtil;
    
 
    static Properties properties = new Properties();
@@ -37,7 +39,7 @@ public class Emailer extends ActionSupport {
 
    public String execute() 
    {
-      String ret = SUCCESS;
+      String success = SUCCESS;
       try
       {
          Session session = Session.getDefaultInstance(properties,  
@@ -45,23 +47,24 @@ public class Emailer extends ActionSupport {
             protected PasswordAuthentication 
             getPasswordAuthentication() {
             return new 
-            PasswordAuthentication("shefalijain1792@gmail.com","Taglu@123");
+            PasswordAuthentication("iatulyasingh@gmail.com","Iajinkyawakhale");
             }});
 
          Message message = new MimeMessage(session);
-         message.setFrom(new InternetAddress("shefalijain1792@gmail.com"));
+         message.setFrom(new InternetAddress("iatulyasingh@gmail.com"));
          message.setRecipients(Message.RecipientType.TO, 
             InternetAddress.parse(to));
          message.setSubject("Reset Password");
          message.setText("http://localhost:8080/at2/Forgotpwd.jsp?tok="+getTokenName());
          Transport.send(message);
+         return success;
       }
       catch(Exception e)
       {
-         ret = ERROR;
+         success = ERROR;
          e.printStackTrace();
       }
-      return ret;
+      return success;
    }
 
   public String loadEmailToken(){
@@ -87,6 +90,20 @@ public class Emailer extends ActionSupport {
 	
 	public void setTokenName(String tokenName) {
 		this.tokenName = tokenName;
+	}
+
+	/**
+	 * @return the storageUtil
+	 */
+	public StorageUtil getStorageUtil() {
+		return storageUtil;
+	}
+
+	/**
+	 * @param storageUtil the storageUtil to set
+	 */
+	public void setStorageUtil(StorageUtil storageUtil) {
+		this.storageUtil = storageUtil;
 	}
 
   

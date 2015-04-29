@@ -112,7 +112,7 @@ public class StorageUtil implements SessionAware {
     		String aID = "AS"+asgnMgmt.getAssignmentId();
     		currentAssignment.setaID(aID);
     		currentAssignment.setAttachment(attachment);
-    		currentAssignment.setGrade(null);
+    		currentAssignment.setGrade("Pending");
     		currentAssignment.setClas(clas);
     		currentAssignment.setSubject(subject);
     		currentAssignment.setTimeStamp(dateFormat.format(date));
