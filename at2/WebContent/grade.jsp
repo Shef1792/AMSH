@@ -97,10 +97,10 @@ $(document).ready(function()
 <div class="wrap">
 	<div class="header">
 		<div class="logo">
-		  	 <a href="index.html" class="style1">Kid School</a>		 </div>
+		  	 <a href="index.jsp" class="style1">Kid School</a>		 </div>
 	    <div class="header-right">
 	 	 <ul class="nav">
-	        <li class="active"><a href="index.jsp" title="Home">Home</a></li>
+	        <li class="active"><a href="teacher.html" title="Home">Home</a></li>
 	  		<li><a href="grade.jsp">Grade Assignments</a></li>
 	  	    <li><a href="group.jsp">Group Video Assignments</a></li>
 	  	    <li><a href="report.jsp">Progress Report</a></li>

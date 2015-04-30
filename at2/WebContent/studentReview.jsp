@@ -107,10 +107,10 @@ td{
 <div class="wrap">
 	<div class="header">
 		<div class="logo">
-		  	 <a href="index.html" class="style1">Kid School</a>		 </div>
+		  	 <a href="index.jsp" class="style1">Kid School</a>		 </div>
 	    <div class="header-right">
 	 	 <ul class="nav">
-	        <li class="active"><a href="index.jsp" title="Home">Home</a></li>
+	        <li class="active"><a href="student.html" title="Home">Home</a></li>
 	  		<li><a href="uploadAssignment.jsp">Submit Assignment</a></li>
 	  	    <li><a href="GetData.jsp">Check Assignment Reviews</a></li>
 	  		<li><a href="logout.jsp">Logout</a></li>
